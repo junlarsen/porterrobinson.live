@@ -1,7 +1,10 @@
 @import "tailwindcss";
+@import "@fontsource/space-grotesk";
 
 @theme {
-  --color-background: #fff;
+  --font-display: "Space Grotesk", sans-serif;
+  --color-white: #fff;
+  --color-black: #000;
 
   --color-pink-1: #fffcfd;
   --color-pink-2: #fff6fa;
