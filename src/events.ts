@@ -6,10 +6,11 @@ export type Event = z.infer<typeof Event>;
 const Event = z.object({
   name: z.string().min(1, "name cannot be empty"),
   time: z.string().min(1, "time cannot be empty"),
-  timeZone: z.string().min(1, "time zone cannot be empty"),
+  timezone: z.string().min(1, "time zone cannot be empty"),
   link: z.string().url(),
   location: z.string().min(1, "location cannot be empty"),
-  maps: z.string().url(),
+  google: z.string().url().nullish().default(null),
+  apple: z.string().url().nullish().default(null),
 });
 
 export type Configuration = z.infer<typeof Configuration>;
