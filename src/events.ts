@@ -23,9 +23,14 @@ const Configuration = z.object({
 // Only load the events once. This is fine because they are a build-time
 // dependency
 const configuration: Configuration = Configuration.parse(raw);
+configuration.events.sort((a, b) =>
+  d.isBefore(getEventZonedTime(a), getEventZonedTime(b)) ? -1 : 1,
+);
 
 // Marked async for future compatibility with database
-export const getEvents = async () => configuration.events;
+export const getEvents = async () => {
+  return configuration.events;
+};
 
 export function getEventZonedTime(event: Event): tz.TZDate {
   const eventTz = tz.tz(event.timezone);
