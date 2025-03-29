@@ -1,6 +1,12 @@
+import {
+  IconBrandApple,
+  IconBrandGoogleMaps,
+  IconExternalLink,
+} from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import * as d from "date-fns";
 import { type FC, useEffect, useState } from "react";
+import { Link } from "~/components/Link";
 import {
   type Event,
   getEventZonedTime,
@@ -67,17 +73,39 @@ const EventDateTimeCountdown: FC<{ event: Event | null }> = ({ event }) => {
       {days > 0 && <span>{days}d </span>}
       {days > 0 && <span>{hours}h </span>}
       {minutes > 0 && <span>{minutes}m </span>}
-      {seconds > 0 && <span>{seconds}s </span>}
+      {seconds >= 0 && <span>{seconds}s </span>}
     </time>
   );
 };
 
 const EventDetailList: FC<{ event: Event }> = ({ event }) => {
   return (
-    <nav className="inline-flex justify-between gap-8">
-      <a href={event.link}>Tickets & Information</a>
-      {event.google && <a href={event.google}>View on Google Maps</a>}
-      {event.apple && <a href={event.apple}>View on Apple Maps</a>}
+    <nav className="inline-flex justify-between gap-8 text-lg">
+      <Link
+        element="a"
+        className="inline-flex gap-1 items-center"
+        href={event.link}
+      >
+        Tickets & Information <IconExternalLink />
+      </Link>
+      {event.google && (
+        <Link
+          element="a"
+          className="inline-flex gap-1 items-center"
+          href={event.google}
+        >
+          View on Google Maps <IconBrandGoogleMaps />
+        </Link>
+      )}
+      {event.apple && (
+        <Link
+          element="a"
+          className="inline-flex gap-1 items-center"
+          href={event.apple}
+        >
+          View on Apple Maps <IconBrandApple />{" "}
+        </Link>
+      )}
     </nav>
   );
 };
