@@ -5,7 +5,6 @@ import {
   createRootRoute,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import type * as React from "react";
 import styles from "~/globals.css?url";
 
 export const Route = createRootRoute({
@@ -21,28 +20,18 @@ export const Route = createRootRoute({
     ],
     links: [{ rel: "stylesheet", href: styles }],
   }),
-  component: RootComponent,
+  component: function RootLayout() {
+    return (
+      <html dir="ltr" lang="en">
+        <head>
+          <HeadContent />
+        </head>
+        <body>
+          <Outlet />
+          <TanStackRouterDevtools position="bottom-right" />
+          <Scripts />
+        </body>
+      </html>
+    );
+  },
 });
-
-function RootComponent() {
-  return (
-    <RootDocument>
-      <Outlet />
-    </RootDocument>
-  );
-}
-
-function RootDocument({ children }: { children: React.ReactNode }) {
-  return (
-    <html dir="ltr" lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <TanStackRouterDevtools position="bottom-right" />
-        <Scripts />
-      </body>
-    </html>
-  );
-}

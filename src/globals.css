@@ -1,22 +1,73 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  html {
-    color-scheme: light dark;
-  }
+@theme {
+  --color-background: #fff;
 
-  * {
-    @apply border-gray-200 dark:border-gray-800;
-  }
+  --color-pink-1: #fffcfd;
+  --color-pink-2: #fff6fa;
+  --color-pink-3: #ffe5f3;
+  --color-pink-4: #ffd6ea;
+  --color-pink-5: #ffc6e1;
+  --color-pink-6: #ffb5d6;
+  --color-pink-7: #fe9fc9;
+  --color-pink-8: #f881b9;
+  --color-pink-9: #f57eb6;
+  --color-pink-10: #e973ab;
+  --color-pink-11: #b4447d;
+  --color-pink-12: #700042;
 
-  html,
-  body {
-    @apply text-gray-900 bg-gray-50 dark:bg-gray-950 dark:text-gray-200;
-  }
+  --color-pink-a1: #ff005503;
+  --color-pink-a2: #ff007209;
+  --color-pink-a3: #ff008a1a;
+  --color-pink-a4: #ff007d29;
+  --color-pink-a5: #ff007939;
+  --color-pink-a6: #ff01724a;
+  --color-pink-a7: #fd007060;
+  --color-pink-a8: #f100727e;
+  --color-pink-a9: #ec006f81;
+  --color-pink-a10: #d700668c;
+  --color-pink-a11: #99004ebb;
+  --color-pink-a12: #700042;
 
-  .using-mouse * {
-    outline: none !important;
+  --color-pink-contrast: #fff;
+  --color-pink-surface: #fff4f9cc;
+  --color-pink-indicator: #f57eb6;
+  --color-pink-track: #f57eb6;
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  @media (color-gamut: p3) {
+    @theme {
+      --color-pink-1: oklch(99.4% 0.0058 352.1);
+      --color-pink-2: oklch(98.3% 0.0137 352.1);
+      --color-pink-3: oklch(95.4% 0.0406 352.1);
+      --color-pink-4: oklch(92.5% 0.0619 352.1);
+      --color-pink-5: oklch(89.3% 0.0807 352.1);
+      --color-pink-6: oklch(85.5% 0.0992 352.1);
+      --color-pink-7: oklch(80.9% 0.1232 352.1);
+      --color-pink-8: oklch(75.1% 0.1576 352.1);
+      --color-pink-9: oklch(74.3% 0.1576 352.1);
+      --color-pink-10: oklch(70.7% 0.1576 352.1);
+      --color-pink-11: oklch(55.6% 0.1576 352.1);
+      --color-pink-12: oklch(34.9% 0.1576 352.1);
+
+      --color-pink-a1: color(display-p3 0.6745 0.0235 0.349 / 0.012);
+      --color-pink-a2: color(display-p3 0.7843 0.0235 0.4588 / 0.036);
+      --color-pink-a3: color(display-p3 0.8431 0.0118 0.4863 / 0.099);
+      --color-pink-a4: color(display-p3 0.8235 0.0039 0.4392 / 0.153);
+      --color-pink-a5: color(display-p3 0.8392 0.0039 0.4392 / 0.216);
+      --color-pink-a6: color(display-p3 0.8471 0.0039 0.4118 / 0.279);
+      --color-pink-a7: color(display-p3 0.851 0.0039 0.3922 / 0.361);
+      --color-pink-a8: color(display-p3 0.8196 0.0039 0.4 / 0.471);
+      --color-pink-a9: color(display-p3 0.7961 0.0039 0.3922 / 0.483);
+      --color-pink-a10: color(display-p3 0.7255 0 0.3608 / 0.526);
+      --color-pink-a11: color(display-p3 0.5137 0 0.2667 / 0.706);
+      --color-pink-a12: color(display-p3 0.3608 0 0.2039 / 0.938);
+
+      --color-pink-contrast: #fff;
+      --color-pink-surface: color(display-p3 1 0.9569 0.9765 / 0.8);
+      --color-pink-indicator: oklch(74.3% 0.1576 352.1);
+      --color-pink-track: oklch(74.3% 0.1576 352.1);
+    }
   }
 }
