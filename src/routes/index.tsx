@@ -18,17 +18,21 @@ export const Route = createFileRoute("/")({
   component: function Page() {
     const { future } = Route.useLoaderData();
     return (
-      <main className="mx-auto lg:max-w-5xl p-8 lg:py-16 text-center">
-        <h1 className="uppercase tracking-tight text-xl lg:text-4xl">
-          Porter Robinson is playing live at{" "}
-          <span className="text-pink-9">
-            {future !== null ? future.location : "???"}
-          </span>{" "}
-          in
-        </h1>
-        <div className="text-4xl lg:text-8xl font-extrabold tracking-tight my-8">
-          <EventDateTimeCountdown event={future} />
-        </div>
+      <main className="min-h-screen flex items-center">
+        <section className="mx-auto lg:max-w-5xl p-8 text-center">
+          <h1 className="uppercase tracking-tight text-xl lg:text-4xl">
+            Porter Robinson is playing{" "}
+            {future && <span className="font-bold">{future.name}</span>} live at{" "}
+            <span className="text-pink-9">
+              {future !== null ? future.location : "???"}
+            </span>{" "}
+            in
+          </h1>
+          <div className="text-4xl lg:text-8xl font-extrabold tracking-tight my-8">
+            <EventDateTimeCountdown event={future} />
+          </div>
+          {future !== null && <EventDetailList event={future} />}
+        </section>
       </main>
     );
   },
@@ -65,5 +69,15 @@ const EventDateTimeCountdown: FC<{ event: Event | null }> = ({ event }) => {
       {minutes > 0 && <span>{minutes}m </span>}
       {seconds > 0 && <span>{seconds}s </span>}
     </time>
+  );
+};
+
+const EventDetailList: FC<{ event: Event }> = ({ event }) => {
+  return (
+    <nav className="inline-flex justify-between gap-8">
+      <a href={event.link}>Tickets & Information</a>
+      {event.google && <a href={event.google}>View on Google Maps</a>}
+      {event.apple && <a href={event.apple}>View on Apple Maps</a>}
+    </nav>
   );
 };
