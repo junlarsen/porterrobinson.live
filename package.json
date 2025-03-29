@@ -19,11 +19,13 @@
     "@tanstack/react-start": "^1.114.29",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "nitropack": "^2.11.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "redaxios": "^0.5.1",
     "tailwind-merge": "^2.6.0",
     "toml": "^3.0.0",
+    "unstorage": "^1.15.0",
     "vinxi": "0.5.3",
     "zod": "^3.24.2"
   },

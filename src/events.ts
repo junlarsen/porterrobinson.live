@@ -1,9 +1,8 @@
-import * as fs from "node:fs/promises";
 import * as tz from "@date-fns/tz";
 import { createServerFn } from "@tanstack/react-start";
 import * as d from "date-fns";
-import * as toml from "toml";
 import { z } from "zod";
+import * as raw from "../events.json";
 
 export type Event = z.infer<typeof Event>;
 const Event = z.object({
@@ -23,17 +22,10 @@ const Configuration = z.object({
 
 // Only load the events once. This is fine because they are a build-time
 // dependency
-let configuration: Configuration | null = null;
+const configuration: Configuration = Configuration.parse(raw);
 
-export async function getEvents(): Promise<Event[]> {
-  if (configuration === null) {
-    const path = new URL("../events.toml", import.meta.url);
-    const events = await fs.readFile(path, "utf-8");
-    const object = toml.parse(events);
-    configuration = Configuration.parse(object);
-  }
-  return configuration.events;
-}
+// Marked async for future compatibility with database
+export const getEvents = async () => configuration.events;
 
 export function getEventZonedTime(event: Event): tz.TZDate {
   const eventTz = tz.tz(event.timezone);
