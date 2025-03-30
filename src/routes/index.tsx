@@ -8,6 +8,7 @@ import {
 import { createFileRoute } from "@tanstack/react-router";
 import * as d from "date-fns";
 import { type FC, useEffect, useState } from "react";
+import { Heading } from "~/components/Heading";
 import { Link } from "~/components/Link";
 import { NavigationTabs } from "~/components/NavigationTabs";
 import {
@@ -31,7 +32,7 @@ export const Route = createFileRoute("/")({
         <NavigationTabs />
         <main className="min-h-screen flex items-center">
           <section className="mx-auto lg:max-w-5xl p-8 text-center">
-            <h1 className="uppercase tracking-tight text-xl lg:text-4xl">
+            <Heading>
               Porter Robinson is playing{" "}
               {future && <span className="font-bold">{future.name}</span>} live
               at{" "}
@@ -39,7 +40,7 @@ export const Route = createFileRoute("/")({
                 {future !== null ? future.location : "???"}
               </span>{" "}
               in
-            </h1>
+            </Heading>
             <div className="text-4xl lg:text-8xl font-extrabold tracking-tight my-8">
               <EventDateTimeCountdown event={future} />
             </div>
