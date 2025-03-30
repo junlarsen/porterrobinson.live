@@ -10,6 +10,7 @@
       "**/node_modules",
       "**/dist",
       "**/public",
+      ".netlify",
       "src/routeTree.gen.ts"
     ]
   },
