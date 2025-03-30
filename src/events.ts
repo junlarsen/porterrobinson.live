@@ -1,6 +1,8 @@
+import * as crypto from "node:crypto";
 import * as tz from "@date-fns/tz";
 import { createServerFn } from "@tanstack/react-start";
 import * as d from "date-fns";
+import type { ICalEventData } from "ical-generator";
 import { z } from "zod";
 import * as raw from "../events.json";
 
@@ -50,3 +52,19 @@ export const getNextEvent = createServerFn().handler(async () => {
   const events = await getEvents();
   return events.filter(isEventInTheFuture).at(0) ?? null;
 });
+
+export function createCalendarEvent(event: Event): ICalEventData {
+  const id = crypto
+    .createHash("sha256")
+    .update(event.name)
+    .update(event.link)
+    .digest("hex");
+  return {
+    id,
+    start: getEventZonedTime(event),
+    summary: event.name,
+    description: `Porter Robinson is live playing ${event.name}`,
+    location: event.google ?? event.apple ?? undefined,
+    url: event.link,
+  } satisfies ICalEventData;
+}

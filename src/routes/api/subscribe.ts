@@ -1,7 +1,6 @@
-import * as crypto from "node:crypto";
 import { createAPIFileRoute } from "@tanstack/react-start/api";
 import ical from "ical-generator";
-import { getEventZonedTime, getEvents } from "~/events";
+import { createCalendarEvent, getEvents } from "~/events";
 
 export const APIRoute = createAPIFileRoute("/api/subscribe")({
   GET: async () => {
@@ -13,19 +12,7 @@ export const APIRoute = createAPIFileRoute("/api/subscribe")({
       prodId: "porterrobinson.live",
     });
     for (const event of events) {
-      const id = crypto
-        .createHash("sha256")
-        .update(event.name)
-        .update(event.link)
-        .digest("hex");
-      calendar.createEvent({
-        id,
-        start: getEventZonedTime(event),
-        summary: event.name,
-        description: `Porter Robinson is live playing ${event.name}`,
-        location: event.google ?? event.apple ?? undefined,
-        url: event.link,
-      });
+      calendar.createEvent(createCalendarEvent(event));
     }
     return new Response(calendar.toString(), {
       headers: {
