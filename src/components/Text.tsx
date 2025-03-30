@@ -5,19 +5,19 @@ import type {
   PropsWithChildren,
 } from "react";
 
-export type HeadingProps<E extends ElementType = "h1"> = PropsWithChildren & {
+export type TextProps<E extends ElementType = "p"> = PropsWithChildren & {
   element?: E;
   className?: string;
 } & ComponentPropsWithRef<E>;
 
-export function Heading<E extends ElementType = "h1">({
+export function Text<E extends ElementType = "p">({
   element,
   className,
   children,
   ...props
-}: HeadingProps<E>) {
-  const Component = element ?? "h1";
-  const classes = clsx("tracking-tight text-xl lg:text-4xl", className);
+}: TextProps<E>) {
+  const Component = element ?? "p";
+  const classes = clsx(className);
   return (
     <Component className={classes} {...props}>
       {children}

@@ -20,7 +20,7 @@ export function Link<E extends ElementType = typeof TSRLink>({
 }: LinkProps<E>) {
   const Component = element ?? TSRLink;
   const classes = clsx(
-    "text-black transition-colors duration-150 hover:text-pink-10 select-none",
+    "text-black transition-colors duration-150 hover:text-pink-10",
     className,
   );
   return (

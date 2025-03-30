@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
         <NavigationTabs />
         <main className="min-h-screen flex items-center">
           <section className="mx-auto lg:max-w-5xl p-8 text-center">
-            <Heading>
+            <Heading className="uppercase">
               Porter Robinson is playing{" "}
               {future && <span className="font-bold">{future.name}</span>} live
               at{" "}
@@ -112,7 +112,7 @@ const EventDetailList: FC<{ event: Event }> = ({ event }) => {
         ]
       : []),
     {
-      href: `https://calendar.google.com/calendar/render?action=TEMPLATE&cid=webcal://porterrobinson.live/api/${event.slug}/subscribe`,
+      href: `https://calendar.google.com/calendar/render?cid=webcal://porterrobinson.live/api/${event.slug}/subscribe`,
       children: "Add to Google Calendar",
       icon: <IconCalendar />,
     },
