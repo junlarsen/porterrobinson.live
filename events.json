@@ -1,6 +1,7 @@
 {
   "events": [
     {
+      "slug": "summer-sonic-japan-osaka-2025",
       "name": "Summer Sonic Japan (Osaka)",
       "time": "2025-08-17T00:00:00+09:00",
       "timezone": "Asia/Tokyo",
@@ -10,6 +11,7 @@
       "apple": "https://beta.maps.apple.com/?address=%E3%80%92565-0826%2C+%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%90%B9%E7%94%B0%E5%B8%82%2C+%E5%8D%83%E9%87%8C%E4%B8%87%E5%8D%9A%E5%85%AC%E5%9C%921-1&auid=13277834937432980055&ll=34.8087999%2C135.5323863&lsp=9902&q=Expo%2770+Commemorative+Park"
     },
     {
+      "slug": "summer-sonic-japan-tokyo-2025",
       "name": "Summer Sonic Japan (Tokyo)",
       "time": "2025-08-16T00:00:00+09:00",
       "timezone": "Asia/Tokyo",
@@ -19,6 +21,7 @@
       "apple": "https://beta.maps.apple.com/?ll=35.64520429673103%2C140.0309122&spn=0.008993300000014415%2C0.012172213764586104"
     },
     {
+      "slug": "capitol-hill-block-party-2025",
       "name": "Capitol Hill Block Party",
       "time": "2025-07-20T00:00:00-07:00",
       "timezone": "America/Los_Angeles",
@@ -28,6 +31,7 @@
       "apple": "https://beta.maps.apple.com/?address=925+E+Pike+St%2C+Seattle%2C+WA+98122%2C+United+States&auid=11257366895210250506&ll=47.614292%2C-122.3177933&lsp=9902&q=925+E+Pike+St"
     },
     {
+      "slug": "summerfest-2025",
       "name": "Summerfest",
       "time": "2025-07-04T00:00:00-04:00",
       "timezone": "America/Detroit",
@@ -37,6 +41,7 @@
       "apple": "https://beta.maps.apple.com/?address=200+N+Harbor+Dr%2C+Milwaukee%2C+WI+53202%2C+United+States&auid=7220194367315004270&ll=43.0272758%2C-87.8976874&lsp=9902&q=Summerfest"
     },
     {
+      "slug": "silo-dj-set-2025",
       "name": "SILO (DJ Set)",
       "time": "2025-06-06T21:00:00-05:00",
       "timezone": "America/Chicago",
@@ -46,6 +51,7 @@
       "apple": "https://beta.maps.apple.com/?ll=32.79762870006251%2C-96.82825345018884&spn=0.00909372182727708%2C0.009238876705055077"
     },
     {
+      "slug": "head-in-the-clouds-dj-set-2025",
       "name": "Head In The Clouds (DJ Set)",
       "time": "2025-05-31T13:00:00-07:00",
       "timezone": "America/Los_Angeles",
@@ -55,6 +61,7 @@
       "apple": "https://beta.maps.apple.com/?address=1001+Rose+Bowl+Dr%2C+Pasadena%2C+CA+91103%2C+United+States&ll=34.1612175%2C-118.1688462&q=1001+Rose+Bowl+Dr"
     },
     {
+      "slug": "smile-world-tour-chicago-2025",
       "name": "SMILE! :D WORLD TOUR",
       "time": "2025-05-17T18:30:00-05:00",
       "timezone": "America/Chicago",
@@ -64,6 +71,7 @@
       "apple": "https://beta.maps.apple.com/?address=1357+N+Elston+Ave%2C+Chicago%2C+IL+60642%2C+United+States&auid=11257366895210250506&ll=41.9067328%2C-87.6591887&lsp=9902&q=The+Salt+Shed"
     },
     {
+      "slug": "tao-beach-dj-set-2025",
       "name": "Tao Beach (DJ Set)",
       "time": "2025-05-15T11:00:00-07:00",
       "timezone": "America/Los_Angeles",

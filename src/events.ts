@@ -1,4 +1,3 @@
-import * as crypto from "node:crypto";
 import * as tz from "@date-fns/tz";
 import { createServerFn } from "@tanstack/react-start";
 import * as d from "date-fns";
@@ -8,6 +7,7 @@ import * as raw from "../events.json";
 
 export type Event = z.infer<typeof Event>;
 const Event = z.object({
+  slug: z.string().min(1, "slug cannot be empty"),
   name: z.string().min(1, "name cannot be empty"),
   time: z.string().min(1, "time cannot be empty"),
   timezone: z.string().min(1, "time zone cannot be empty"),
@@ -30,9 +30,14 @@ configuration.events.sort((a, b) =>
 );
 
 // Marked async for future compatibility with database
-export const getEvents = async () => {
+export async function getEvents(): Promise<Event[]> {
   return configuration.events;
-};
+}
+
+export async function getEventBySlug(slug: string): Promise<Event | null> {
+  const all = await getEvents();
+  return all.find((event) => event.slug === slug) ?? null;
+}
 
 export function getEventZonedTime(event: Event): tz.TZDate {
   const eventTz = tz.tz(event.timezone);
@@ -54,13 +59,8 @@ export const getNextEvent = createServerFn().handler(async () => {
 });
 
 export function createCalendarEvent(event: Event): ICalEventData {
-  const id = crypto
-    .createHash("sha256")
-    .update(event.name)
-    .update(event.link)
-    .digest("hex");
   return {
-    id,
+    id: event.slug,
     start: getEventZonedTime(event),
     summary: event.name,
     description: `Porter Robinson is live playing ${event.name}`,
