@@ -85,7 +85,7 @@ const EventDateTimeCountdown: FC<{ event: Event | null }> = ({ event }) => {
 
 const EventDetailList: FC<{ event: Event }> = ({ event }) => {
   return (
-    <nav className="inline-flex justify-between gap-8 text-lg">
+    <nav className="inline-flex flex-col lg:flex-row justify-between gap-2 lg:gap-8 text-lg">
       <Link
         element="a"
         className="inline-flex gap-1 items-center"
