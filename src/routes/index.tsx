@@ -1,7 +1,9 @@
 import {
   IconBrandApple,
   IconBrandGoogleMaps,
+  IconCalendar,
   IconExternalLink,
+  IconFileDatabase,
 } from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import * as d from "date-fns";
@@ -84,33 +86,54 @@ const EventDateTimeCountdown: FC<{ event: Event | null }> = ({ event }) => {
 };
 
 const EventDetailList: FC<{ event: Event }> = ({ event }) => {
+  const links = [
+    {
+      href: event.link,
+      children: "Tickets & Information",
+      icon: <IconExternalLink />,
+    },
+    ...(event.google
+      ? [
+          {
+            href: event.google,
+            children: "View on Google Maps",
+            icon: <IconBrandGoogleMaps />,
+          },
+        ]
+      : []),
+    ...(event.apple
+      ? [
+          {
+            href: event.apple,
+            children: "View on Apple Maps",
+            icon: <IconBrandApple />,
+          },
+        ]
+      : []),
+    {
+      href: `https://calendar.google.com/calendar/render?action=TEMPLATE&cid=webcal://porterrobinson.live/api/${event.slug}/subscribe`,
+      children: "Add to Google Calendar",
+      icon: <IconCalendar />,
+    },
+    {
+      href: `webcal://porterrobinson.live/api/${event.slug}/subscribe`,
+      children: "Download .ics file",
+      icon: <IconFileDatabase />,
+    },
+  ];
   return (
-    <nav className="inline-flex flex-col lg:flex-row justify-between gap-2 lg:gap-8 text-lg">
-      <Link
-        element="a"
-        className="inline-flex gap-1 items-center"
-        href={event.link}
-      >
-        Tickets & Information <IconExternalLink />
-      </Link>
-      {event.google && (
+    <nav className="inline-flex flex-col lg:flex-row justify-center items-center gap-2 lg:gap-x-16 lg:gap-y-2 text-lg flex-wrap">
+      {links.map((link) => (
         <Link
+          key={link.href}
           element="a"
-          className="inline-flex gap-1 items-center"
-          href={event.google}
+          href={link.href}
+          className="inline-flex gap-1 text-center items-center"
         >
-          View on Google Maps <IconBrandGoogleMaps />
+          {link.children}
+          {link.icon && <span> {link.icon}</span>}
         </Link>
-      )}
-      {event.apple && (
-        <Link
-          element="a"
-          className="inline-flex gap-1 items-center"
-          href={event.apple}
-        >
-          View on Apple Maps <IconBrandApple />{" "}
-        </Link>
-      )}
+      ))}
     </nav>
   );
 };
