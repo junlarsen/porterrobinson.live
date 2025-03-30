@@ -6,7 +6,7 @@ export const Route = createFileRoute("/_content")({
     return (
       <>
         <NavigationTabs />
-        <div className="mx-auto max-w-3xl p-2 mt-28">
+        <div className="mx-auto max-w-3xl p-8 mt-28">
           <Outlet />
         </div>
       </>

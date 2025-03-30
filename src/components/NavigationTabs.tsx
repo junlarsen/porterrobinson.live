@@ -27,8 +27,8 @@ const options = linkOptions([
 
 export const NavigationTabs: FC = () => {
   return (
-    <nav className="fixed top-4 w-full text-center p-2">
-      <div className="mx-auto max-w-3xl py-3 px-6 border border-gray-6 rounded-full bg-white flex justify-between gap-4 lg:gap-8">
+    <nav className="fixed top-4 w-full text-center p-4">
+      <div className="mx-auto max-w-3xl py-4 px-4 lg:px-8 border border-gray-6 rounded-full bg-white flex justify-between gap-4 lg:gap-8">
         {options.map((option) => (
           <Link key={option.to} {...option} />
         ))}
