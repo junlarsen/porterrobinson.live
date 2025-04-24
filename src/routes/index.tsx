@@ -44,7 +44,15 @@ export const Route = createFileRoute("/")({
             <div className="text-4xl lg:text-8xl font-extrabold tracking-tight my-8">
               <EventDateTimeCountdown event={future} />
             </div>
-            {future !== null && <EventDetailList event={future} />}
+            {future !== null && (
+              <>
+                <EventDetailList event={future} />
+                <p className="text-gray-11 text-sm mt-16">
+                  *Disclaimer: exact set time might be off - not all events
+                  provide exact hours so check with your location! :D
+                </p>
+              </>
+            )}
           </section>
         </main>
       </>
