@@ -41,6 +41,26 @@
       "apple": "https://beta.maps.apple.com/?address=200+N+Harbor+Dr%2C+Milwaukee%2C+WI+53202%2C+United+States&auid=7220194367315004270&ll=43.0272758%2C-87.8976874&lsp=9902&q=Summerfest"
     },
     {
+      "slug": "maya-dayclub-dj-set-2025",
+      "name": "Maya Dayclub (DJ Set)",
+      "time": "2025-06-08T23:59:59-07:00",
+      "timezone": "America/Denver",
+      "link": "https://www.tixr.com/groups/relentlessbeats/events/porter-robinson-dj-set--141112",
+      "location": "7333 E Indian Plaza, Scottsdale, AZ 85251, US",
+      "google": "https://www.google.com/maps/place/Maya+Dayclub/@33.4848941,-112.0103877,10.76z/data=!4m6!3m5!1s0x872b0bbc870f0059:0x2129bd17f8909dbb!8m2!3d33.501291!4d-111.9228153!16s%2Fg%2F12hmkfdyx?hl=ja&entry=ttu&g_ep=EgoyMDI1MDQyMS4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D",
+      "apple": "https://maps.apple.com/place?place-id=I11F8FA031C45B2D&address=7333+E+Indian+Plaza%2C+Scottsdale%2C+AZ++85251%2C+United+States&coordinate=33.5012707%2C-111.923067&name=Maya+Dayclub&_provider=9902"
+    },
+    {
+      "slug": "reelworks-dj-set-2025",
+      "name": "Reelworks (DJ Set)",
+      "time": "2025-06-07T18:00:00-07:00",
+      "timezone": "America/Denver",
+      "link": "https://reelworksdenver.com/event/porter-robinson/",
+      "location": "Reelworks, 1399 35th St, Denver, CO 80205, US",
+      "google": "https://www.google.com/maps/place/ReelWorks+Denver/@39.7646791,-104.9736583,17z/data=!4m6!3m5!1s0x876c7917e3801849:0xbb2b58afbb663b76!8m2!3d39.7676213!4d-104.974983!16s%2Fg%2F1tj587yq?hl=ja&entry=ttu&g_ep=EgoyMDI1MDQyMS4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D",
+      "apple": "https://maps.apple.com/place?place-id=IA7893E33BD951485&address=1399+35th+Ave%2C+Denver%2C+CO+80205%2C+United+States&coordinate=39.7676111%2C-104.9750878&name=Reelworks&_provider=9902"
+    },
+    {
       "slug": "silo-dj-set-2025",
       "name": "SILO (DJ Set)",
       "time": "2025-06-06T21:00:00-05:00",
