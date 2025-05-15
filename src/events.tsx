@@ -1,4 +1,11 @@
 import * as tz from "@date-fns/tz";
+import {
+  IconBrandApple,
+  IconBrandGoogleMaps,
+  IconCalendar,
+  IconExternalLink,
+  IconFileDatabase,
+} from "@tabler/icons-react";
 import { createServerFn } from "@tanstack/react-start";
 import * as d from "date-fns";
 import type { ICalEventData } from "ical-generator";
@@ -67,4 +74,42 @@ export function createCalendarEvent(event: Event): ICalEventData {
     location: event.google ?? event.apple ?? undefined,
     url: event.link,
   } satisfies ICalEventData;
+}
+
+export function getEventLinks(event: Event) {
+  return [
+    {
+      href: event.link,
+      children: "Tickets & Information",
+      icon: <IconExternalLink />,
+    },
+    ...(event.google
+      ? [
+          {
+            href: event.google,
+            children: "View on Google Maps",
+            icon: <IconBrandGoogleMaps />,
+          },
+        ]
+      : []),
+    ...(event.apple
+      ? [
+          {
+            href: event.apple,
+            children: "View on Apple Maps",
+            icon: <IconBrandApple />,
+          },
+        ]
+      : []),
+    {
+      href: `https://calendar.google.com/calendar/render?cid=webcal://porterrobinson.live/api/${event.slug}/subscribe`,
+      children: "Add to Google Calendar",
+      icon: <IconCalendar />,
+    },
+    {
+      href: `webcal://porterrobinson.live/api/${event.slug}/subscribe`,
+      children: "Download .ics file",
+      icon: <IconFileDatabase />,
+    },
+  ];
 }

@@ -1,10 +1,3 @@
-import {
-  IconBrandApple,
-  IconBrandGoogleMaps,
-  IconCalendar,
-  IconExternalLink,
-  IconFileDatabase,
-} from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
 import * as d from "date-fns";
 import { type FC, useEffect, useState } from "react";
@@ -13,6 +6,7 @@ import { Link } from "~/components/Link";
 import { NavigationTabs } from "~/components/NavigationTabs";
 import {
   type Event,
+  getEventLinks,
   getEventZonedTime,
   getEvents,
   getLocalZonedTime,
@@ -95,41 +89,7 @@ const EventDateTimeCountdown: FC<{ event: Event | null }> = ({ event }) => {
 };
 
 const EventDetailList: FC<{ event: Event }> = ({ event }) => {
-  const links = [
-    {
-      href: event.link,
-      children: "Tickets & Information",
-      icon: <IconExternalLink />,
-    },
-    ...(event.google
-      ? [
-          {
-            href: event.google,
-            children: "View on Google Maps",
-            icon: <IconBrandGoogleMaps />,
-          },
-        ]
-      : []),
-    ...(event.apple
-      ? [
-          {
-            href: event.apple,
-            children: "View on Apple Maps",
-            icon: <IconBrandApple />,
-          },
-        ]
-      : []),
-    {
-      href: `https://calendar.google.com/calendar/render?cid=webcal://porterrobinson.live/api/${event.slug}/subscribe`,
-      children: "Add to Google Calendar",
-      icon: <IconCalendar />,
-    },
-    {
-      href: `webcal://porterrobinson.live/api/${event.slug}/subscribe`,
-      children: "Download .ics file",
-      icon: <IconFileDatabase />,
-    },
-  ];
+  const links = getEventLinks(event);
   return (
     <nav className="inline-flex flex-col lg:flex-row justify-center items-center gap-2 lg:gap-x-16 lg:gap-y-2 text-lg flex-wrap">
       {links.map((link) => (
