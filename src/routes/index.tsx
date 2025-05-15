@@ -71,19 +71,15 @@ const EventDateTimeCountdown: FC<{ event: Event | null }> = ({ event }) => {
   }
   const eventTime = getEventZonedTime(event);
   const localTime = getLocalZonedTime();
-  const delta = d.differenceInSeconds(eventTime, localTime);
-
-  const days = Math.floor(delta / (24 * 60 * 60));
-  const hours = Math.floor((delta % (24 * 60 * 60)) / (60 * 60));
-  const minutes = Math.floor((delta % (60 * 60)) / 60);
-  const seconds = delta % 60;
+  const duration = d.intervalToDuration(d.interval(localTime, eventTime));
 
   return (
     <time dateTime={eventTime.toISOString()}>
-      {days > 0 && <span>{days}d </span>}
-      {days > 0 && <span>{hours}h </span>}
-      {minutes > 0 && <span>{minutes}m </span>}
-      {seconds >= 0 && <span>{seconds}s </span>}
+      {duration.weeks && <span>{duration.weeks}w </span>}
+      {duration.days && <span>{duration.days}d </span>}
+      {duration.hours && <span>{duration.hours}h </span>}
+      {duration.minutes && <span>{duration.minutes}m </span>}
+      {duration.seconds && <span>{duration.seconds}s </span>}
     </time>
   );
 };

@@ -47,13 +47,12 @@ export async function getEventBySlug(slug: string): Promise<Event | null> {
 }
 
 export function getEventZonedTime(event: Event): tz.TZDate {
-  const eventTz = tz.tz(event.timezone);
-  return eventTz(new Date(event.time));
+  return new tz.TZDate(event.time, event.timezone);
 }
 
 export function getLocalZonedTime(): tz.TZDate {
-  const localTz = tz.tz(new Intl.DateTimeFormat().resolvedOptions().timeZone);
-  return localTz(new Date());
+  const localTz = new Intl.DateTimeFormat().resolvedOptions().timeZone;
+  return new tz.TZDate().withTimeZone(localTz);
 }
 
 export function isEventInTheFuture(event: Event): boolean {
