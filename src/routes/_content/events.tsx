@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import clsx from "clsx";
+import * as d from "date-fns";
 import type { FC } from "react";
 import { Heading } from "~/components/Heading";
 import { Link } from "~/components/Link";
@@ -15,8 +16,22 @@ import {
 export const Route = createFileRoute("/_content/events")({
   loader: async () => {
     // TODO: Maybe paginate once we have a few hundred entries?
-    const events = await getEvents();
-    events.reverse();
+    const events = [...(await getEvents())];
+    events.sort((left, right) => {
+      const leftDate = getEventZonedTime(left);
+      const rightDate = getEventZonedTime(right);
+      const leftFuture = isEventInTheFuture(left);
+      const rightFuture = isEventInTheFuture(right);
+      // If both events are in the future, we get the earliest one
+      if (leftFuture && rightFuture) {
+        return d.compareAsc(leftDate, rightDate);
+      }
+      // Otherwise, order all past events last
+      if (leftFuture && !rightFuture) {
+        return -1;
+      }
+      return 0;
+    });
     return { events };
   },
   component: function Page() {
