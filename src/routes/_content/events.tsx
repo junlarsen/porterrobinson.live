@@ -43,7 +43,7 @@ export const Route = createFileRoute("/_content/events")({
           <Text>
             All upcoming and past events. We started tracking events in 2025,
             but we are trying to add older events as well. Check out the{" "}
-            <Link className="text-pink-9 font-semibold" to="/calendar">
+            <Link className="text-pink-9 font-semibold" to="/contribute">
               contributing guide
             </Link>{" "}
             if you want to help us out!
