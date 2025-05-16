@@ -33,7 +33,7 @@ export const Route = createFileRoute("/_content/")({
               </span>{" "}
               in
             </Heading>
-            <div className="text-4xl lg:text-8xl font-extrabold tracking-tight my-8 -mx-32">
+            <div className="text-4xl lg:text-8xl font-extrabold tracking-tight my-8 lg:-mx-32">
               <EventDateTimeCountdown event={future} />
             </div>
             {future !== null && (
