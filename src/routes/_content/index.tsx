@@ -3,7 +3,6 @@ import * as d from "date-fns";
 import { type FC, useEffect, useState } from "react";
 import { Heading } from "~/components/Heading";
 import { Link } from "~/components/Link";
-import { NavigationTabs } from "~/components/NavigationTabs";
 import {
   type Event,
   getEventLinks,
@@ -13,7 +12,7 @@ import {
   getNextEvent,
 } from "~/events";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/_content/")({
   loader: async () => {
     const future = await getNextEvent();
     const events = await getEvents();
@@ -23,19 +22,18 @@ export const Route = createFileRoute("/")({
     const { future } = Route.useLoaderData();
     return (
       <>
-        <NavigationTabs />
-        <main className="min-h-screen flex items-center">
+        <main className="h-full flex items-center">
           <section className="mx-auto lg:max-w-5xl p-8 text-center">
             <Heading className="uppercase">
               Porter Robinson is playing{" "}
               {future && <span className="font-bold">{future.name}</span>} live
               at{" "}
-              <span className="text-pink-9">
+              <span className="text-pink-9 font-semibold">
                 {future !== null ? future.location : "???"}
               </span>{" "}
               in
             </Heading>
-            <div className="text-4xl lg:text-8xl font-extrabold tracking-tight my-8">
+            <div className="text-4xl lg:text-8xl font-extrabold tracking-tight my-8 -mx-32">
               <EventDateTimeCountdown event={future} />
             </div>
             {future !== null && (

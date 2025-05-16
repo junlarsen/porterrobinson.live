@@ -13,7 +13,7 @@ export const Route = createFileRoute("/_content/contribute")({
             This website is completely community-driven by volunteers and is not
             affiliated with Porter Robinson or his management. The website is{" "}
             <Link
-              className="text-pink-9"
+              className="text-pink-9 font-semibold"
               element="a"
               href="https://github.com/junlarsen/porterrobinson.live"
             >
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/_content/contribute")({
             textual data format that is easy for both humans and computers to
             read. The list of events can be modified by{" "}
             <Link
-              className="text-pink-9"
+              className="text-pink-9 font-semibold"
               element="a"
               href="https://github.com/junlarsen/porterrobinson.live/edit/main/events.json"
             >
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/_content/contribute")({
             </Link>{" "}
             in the GitHub repository and{" "}
             <Link
-              className="text-pink-9"
+              className="text-pink-9 font-semibold"
               element="a"
               href="https://www.youtube.com/watch?v=nCKdihvneS0"
             >
@@ -65,7 +65,7 @@ export const Route = createFileRoute("/_content/contribute")({
             <Text element="li">
               A datetime. We use the{" "}
               <Link
-                className="text-pink-9"
+                className="text-pink-9 font-semibold"
                 href="https://en.wikipedia.org/wiki/ISO_8601"
                 element="a"
               >
@@ -81,7 +81,7 @@ export const Route = createFileRoute("/_content/contribute")({
             <Text element="li">
               A time-zone identifier from the{" "}
               <Link
-                className="text-pink-9"
+                className="text-pink-9 font-semibold"
                 href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
                 element="a"
               >
@@ -121,7 +121,7 @@ export const Route = createFileRoute("/_content/contribute")({
           <Text>
             You can contact the contributors by{" "}
             <Link
-              className="text-pink-9"
+              className="text-pink-9 font-semibold"
               element="a"
               href="http://github.com/junlarsen/porterrobinson.live/issues/new"
             >

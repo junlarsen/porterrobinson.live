@@ -43,7 +43,7 @@ export const Route = createFileRoute("/_content/events")({
           <Text>
             All upcoming and past events. We started tracking events in 2025,
             but we are trying to add older events as well. Check out the{" "}
-            <Link className="text-pink-9" to="/calendar">
+            <Link className="text-pink-9 font-semibold" to="/calendar">
               contributing guide
             </Link>{" "}
             if you want to help us out!
@@ -82,7 +82,7 @@ const EventCard: FC<{ event: Event }> = ({ event }) => {
       </Heading>
       <Text>
         Porter Robinson {isFuture ? "is playing" : "played"} at{" "}
-        <span className="text-pink-9">{event.location}</span> on{" "}
+        <span className="text-pink-9 font-semibold">{event.location}</span> on{" "}
         <time dateTime={getEventZonedTime(event).toISOString()}>
           {dateFormatter.format(getEventZonedTime(event))}
         </time>{" "}

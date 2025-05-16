@@ -29,7 +29,7 @@ export const Route = createFileRoute("/_content/calendar")({
 
           <Text>
             If you're using another calendar application, you can{" "}
-            <Link to="/api/subscribe" className="text-pink-9">
+            <Link to="/api/subscribe" className="text-pink-9 font-semibold">
               download the .ics file here
             </Link>{" "}
             or manually subscribe to{" "}
