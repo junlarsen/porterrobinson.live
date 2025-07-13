@@ -1,6 +1,26 @@
 {
   "events": [
     {
+      "slug": "lights-all-night-2025",
+      "name": "Lights All Night (DJ Set)",
+      "time": "2025-12-31T00:00:00-05:00",
+      "timezone": "America/Denver",
+      "link": "https://lightsallnight.com/",
+      "location": "Dallas Market Hall, 2200 N Stemmons Fwy, Dallas, TX 75207, US",
+      "google": "https://goo.gl/maps/LcwMAFDPJvFgFF8c7",
+      "apple": "https://maps.apple.com/place?address=N+Stemmons+Fwy%2C+Dallas%2C+TX++75247%2C+United+States&coordinate=32.829029403335376%2C-96.87293720139479&name=N+Stemmons+Fwy"
+    },
+    {
+      "slug": "scream-2025",
+      "name": "SCREAM 2025 (DJ Set)",
+      "time": "2025-10-31T00:00:00-06:00",
+      "timezone": "America/Edmonton",
+      "link": "https://screamhalloween.ca/",
+      "location": "Edmonton EXPO Centre, 7515 118 Ave NW, Edmonton, AB T5B 0J2, Canada",
+      "google": "https://www.google.com/maps/place/Edmonton+EXPO+Centre/@53.5683348,-113.4590021,17z/data=!3m1!4b1!4m6!3m5!1s0x53a02318d07473e5:0x83d1b16985048974!8m2!3d53.5683348!4d-113.4564218!16zL20vMGJmcDE4?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D",
+      "apple": "https://maps.apple.com/place?center=53.568061209610526%2C-113.45768439999999&span=0.0064921278536189675%2C0.012526999999977306"
+    },
+    {
       "slug": "busan-rock-festival-2025",
       "name": "Busan Rock Festival",
       "time": "2025-09-26T00:00:00+09:00",
